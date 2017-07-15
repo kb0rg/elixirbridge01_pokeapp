@@ -33,7 +33,10 @@ defmodule Myapp.Mixfile do
   defp deps do
     [
       {:cowboy, "~> 1.1"},
-      {:plug, "~> 1.3.5"}
+      {:plug, "~> 1.3.5"},
+      
+      {:earmark, "~> 1.2", only: :dev},
+      {:ex_doc, "~> 0.15.1", only: :dev},
     ]
   end
 end

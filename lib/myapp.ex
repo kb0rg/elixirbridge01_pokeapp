@@ -1,18 +1,13 @@
 defmodule Myapp do
-  @moduledoc """
-  Documentation for Myapp.
-  """
+  use Application
 
   @doc """
-  Hello world.
+  Start Myapp here with arguments
 
-  ## Examples
+  Examples:
 
-      iex> Myapp.hello
-      :world
-
+      Myapp.start([], [])
   """
-  def hello do
-    :world
+  def start(_type, _args) do
   end
 end

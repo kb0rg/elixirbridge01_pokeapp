@@ -15,7 +15,7 @@ defmodule Myapp.Router do
     end
 
     get "/" do
-        page = EEx.eval_file("templates/home.html")
+        page = EEx.eval_file("templates/home.html", [name: "kborg"])
         conn
         |> put_resp_header("content-type", "text/html")
         |> send_resp(200, page)
@@ -26,5 +26,4 @@ defmodule Myapp.Router do
             |> send_resp(404, "Not found")
             |> halt
     end
-
 end

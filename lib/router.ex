@@ -8,6 +8,12 @@ defmodule Myapp.Router do
         {:ok, _} = Plug.Adapters.Cowboy.http Myapp.Router, [], [port: 4000]
     end
 
+    get "/hello" do
+        conn
+        |> put_resp_header("content-type", "text/html")
+        |> send_resp(200, "Hello!")
+    end
+
     match _ do
         conn # this variable exists any time we accept a connection
             |> send_resp(404, "Not found")

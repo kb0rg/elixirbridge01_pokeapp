@@ -12,7 +12,8 @@ defmodule Myapp do
     import Supervisor.Spec, warn: false
 
     children = [
-      worker(Myapp.Router, [])
+      worker(Myapp.Router, []),
+      worker(Myapp.ApiServer, [[], []])
     ]
 
     opts = [

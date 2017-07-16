@@ -15,7 +15,16 @@ defmodule Myapp.Router do
     end
 
     get "/" do
-        page = EEx.eval_file("templates/home.html", [name: "kborg"])
+        rand_poke = :rand.uniform(248)
+        {:ok, pokemon} = Myapp.ApiServer.get_pokemon(rand_poke)
+
+        locals = [
+            name: 'kborg',
+            pokemon: pokemon
+        ]
+
+        page = EEx.eval_file("templates/home.html", locals)
+
         conn
         |> put_resp_header("content-type", "text/html")
         |> send_resp(200, page)
